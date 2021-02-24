@@ -1,19 +1,22 @@
+const timeLeft = document.querySelector('h1');
+let timeSecond = 70;
 
-    const timeLeftDisplay = document.querySelector('#time-left')
-    const startBtn = document.querySelector('#start-button')
-   
-    let timeLeft = 10
+displayTime(timeSecond)
 
-    function countDown(){
-        setInterval(function(){  // function loop 
-            if(timeLeft <= 0 ){  // this will stop the count at zero
-               clearInterval(timeLeft = 0)
-            }
-            // it will loop minus one every 1000 milliseconds
-            timeLeftDisplay.innerHTML = timeLeft
-            timeLeft -=1
-        }, 1000) 
+const countDown = setInterval(()=> {
+    timeSecond--;
+    displayTime(timeSecond);
+    if(timeSecond <= 0 || timeSecond < 1){
+        endTime(timeSecond)
+        clearInterval(countDown);
     }
+},1000)
 
-    // start the count down on a click
-    startBtn.addEventListener('click', countDown)
+function displayTime(second){
+    const min = Math.floor(second / 60);
+    const sec = Math.floor(second % 60);
+    timeLeft.innerHTML = min + sec;
+}
+function endtime(){
+    timeLeft.innerHTML = 'Take Pill';
+}

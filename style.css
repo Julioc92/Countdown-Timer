@@ -1,0 +1,19 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 40px;
+    margin-top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#time-left {
+    font-family: 'Montserrat';
+}
+
